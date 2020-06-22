@@ -268,6 +268,35 @@ router.delete('/education/:ed_id',auth, async(req,res)=>{
     await profile.save()
 
     res.json(profile);
+});
+
+
+//Github repos
+
+router.get('/github/:username', (req, res)=>{
+
+    try{
+
+        const options ={
+            uri: `https://api.github/users/${req.params.username}/repos?per_page=5&
+            sort=created:asc&client_id=${config.get('GithubClientId')}&client_secret =${'clientSecret'}`,
+            method: 'GET',
+            headers :{ 'user-agent':'node.js'}
+        };
+
+        request(options, (error, response,body)=>{
+            if(error) console.error(error);
+
+            if(response.statusCode !==200){
+                return res.status(401).json({msg: 'No Github profile found'});
+            }
+
+            res.json(JSON.parse(body));
+        })
+
+    }catch(err){
+        res.status(401).json({msg : "No github repo fror this profile"})
+    }
 })
 
 module.exports = router;
