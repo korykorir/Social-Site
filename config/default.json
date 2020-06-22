@@ -1,3 +1,8 @@
 {
-    "mongoURI":"mongodb+srv://korykorir:korykorir123@cluster0-vitvz.mongodb.net/<dbname>?retryWrites=true&w=majority"
+    
+    "mongoURI":"mongodb+srv://korykorir:korykorir123@cluster0-vitvz.mongodb.net/<dbname>?retryWrites=true&w=majority",
+    "jwtsecret":"mysecrettoken"
 }
+
+
+
