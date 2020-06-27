@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const config = require('config');
-const router = require('../routes/api/auth');
-const Profile = require('../models/Profile');
+
 
 const db = config.get('mongoURI');
 

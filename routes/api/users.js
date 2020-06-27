@@ -12,7 +12,7 @@ const User = require('../../models/user');
 router.post('/',[
     check('name','name is required').not().isEmpty(),
     check('email','Please enter a valid email address').isEmail(),
-    check('password', 'Password has to nbe more than 6 charcaters').isLength({min:6})
+    check('password', 'Password has to be more than 6 characters').isLength({min:6})
 ],async(req,res)=>{
     const errors = validationResult(req);
 
@@ -58,7 +58,7 @@ router.post('/',[
          }
      };
 
-     console.log(payload);
+    
 
      const secret = config.get('jwtsecret');
 
@@ -69,7 +69,7 @@ router.post('/',[
         {expiresIn: 360000},function(err,token){
             console.log(token);
             if(err) throw err;
-                return res.json(token)
+                res.json({token})
             
         });
     
@@ -80,8 +80,7 @@ router.post('/',[
        res.status(500).send('Server error')
 
    };
-    console.log(email);
-    res.send('User registered');
+    
 });
 
 module.exports = router;

@@ -54,11 +54,11 @@ router.post('/login',[
          }
      };
 
-     console.log(payload);
+    
 
      const secret = config.get('jwtsecret');
 
-     console.log(secret);
+  
       jwt.sign(
          payload, 
         config.get('jwtsecret'),
@@ -76,8 +76,7 @@ router.post('/login',[
        res.status(500).send('Server error')
 
    };
-    console.log(email);
-    res.send('User login');
+   
 });
 
 module.exports = router;
