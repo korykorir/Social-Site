@@ -4,6 +4,7 @@ import { getCurrentProfile } from '../../actions/profile';
 import PropTypes from 'prop-types';
 import Spinner from '../layout/Spinner';
 import { Link } from 'react-router-dom';
+import DashboardActions from './DashboardActions';
 
 
 
@@ -21,7 +22,10 @@ const Dashboard = ({getCurrentProfile, auth :{ user }, profile:{profile, loading
             Welcome {user && user.name}
         </p>
        
-            { profile !==null? <Fragment> <h4>Has</h4></Fragment> : 
+            { profile !==null? <Fragment> <h4>
+                <DashboardActions />
+                
+                </h4></Fragment> : 
             <Fragment><p> You have not not setup a profile. Please do so. </p>
             <Link to= '/create-profile' className = 'btn btn-primary my-1'>
                 create profile

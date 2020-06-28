@@ -33,13 +33,16 @@ router.get('/me',auth, async(req,res)=>{
 //Acces private
 router.post('/',auth,[
     check('status', 'status is required').not().isEmpty(),
-    check('skills', 'Skills is required').not().isEmpty()
+   check('skills', 'Skills is required').not().isEmpty()
 ], async (req,res)=>{
 
     const errors = validationResult(req);
     if(!errors.isEmpty()){
         return res.status(400).json({errors: errors.array()});
+        console.log(errors);
     }
+
+    try{
 
     const {
         company,
@@ -56,6 +59,7 @@ router.post('/',auth,[
         linkedin
     } = req.body;
 
+    console.log(skills);
     const profileFields = {};
 
     profileFields.user = req.user.id;
@@ -66,7 +70,7 @@ router.post('/',auth,[
     if(status) profileFields.status = status;
     if(githubusername) profileFields.githubusername = githubusername;
     if(skills) {
-        profileFields.skills = skills.split(',').map(skill=>skill.trim())
+        profileFields.skills =  skills.split(',').map(skill=>skill.trim())
     };
     //Build social object
     profileFields.social = {};
@@ -77,7 +81,7 @@ router.post('/',auth,[
     if(linkedin) profileFields.social.linkedin = linkedin;
     if(instagram) profileFields.social.instagram = instagram;
 
-    try{
+   
         let profile = await Profile.findOne({user : req.user.id});
 
         if(profile){
@@ -96,6 +100,9 @@ router.post('/',auth,[
         res.json(profile);
 
     }catch(err){
+
+   
+        
         console.error(err.message);
        res.status(500).send('Server error')
     }
@@ -195,7 +202,7 @@ router.put('/experience',auth, [
 
     }catch(err){
         console.error(err.message);
-        res.status(500).send('Serevr error');
+        res.status(500).send('Server error');
     }
 });
 
