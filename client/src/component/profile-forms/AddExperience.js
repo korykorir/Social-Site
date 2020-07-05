@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {addExperience} from '../../actions/profile';
 import { connect } from 'react-redux';
 import Moment from 'react-moment';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 const AddExperience = ({addExperience, history}) => {
 
@@ -100,7 +100,7 @@ console.log(formData);
             ></textarea>
             </div>
             <input type="submit" className="btn btn-primary my-1" />
-            <a className="btn btn-light my-1" href="dashboard.html">Go Back</a>
+            <Link to = '/dashboard' className="btn btn-light my-1" >Go Back</Link>
       </form>
         </Fragment>
         

@@ -4,6 +4,7 @@ const { check, validationResuslt, validationResult } = require('express-validato
 const Profile = require ('../../models/Profile');
 const auth = require('../../middleWare/auth');
 const User = require('../../models/user');
+const Post = require('../../models/Posts');
 
 //Get API/profile/me
 //Get current users profile
@@ -155,11 +156,16 @@ router.get('/user/:user_id', async(req, res)=>{
 
 router.delete('/',auth, async(req,res)=>{
     try{
+
+        //remove post
+        await this.post.findOneAndRemove({user: req.user.id});
 //remove profile
-await Profile.findByIdAndRemove({user: req.user.id});
+await Profile.findOneAndRemove({user: req.user.id});
 
 //remove user
-await User.findByIdAndRemove({_id : req.user.id});
+await User.findOneAndRemove({_id : req.user.id});
+
+
 
 res.json({msg: 'User deleted'});
 
@@ -232,8 +238,8 @@ router.put('/education',[
     check('school','School is required').not().isEmpty(),
     check('degree','degree is required').not().isEmpty(),
     check('fieldofstudy','fieldofstudy is required').not().isEmpty(),
-    check('from','from date is required').not().isEmpty(),
-    check('to','to date is required').not().isEmpty()
+    check('from','from date is required').not().isEmpty()
+    
 ], auth, async(req,res)=>{
 
     const errors =validationResult(req);

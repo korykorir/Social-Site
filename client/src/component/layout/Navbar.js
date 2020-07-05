@@ -11,6 +11,11 @@ const Navbar = (props)=>{
     <ul>
         <li>
           <Link to = '/dashboard'> Dashboard</Link>
+          
+        </li>
+        <li>
+          <Link to = '/profiles'> Profiles</Link>
+          
         </li>
 
         <li>
@@ -18,6 +23,11 @@ const Navbar = (props)=>{
             <i className="fas fa-sign-out-alt"></i>{' '}
             <span className="hide-sm"></span> Logout</a>
         </li>
+        <li>
+        <Link to = '/posts'> Posts</Link>
+
+        </li>
+        
 
     </ul>
     
@@ -27,6 +37,11 @@ const Navbar = (props)=>{
   const guestLinks =(
     <ul>
                 <li><Link to="/">Developers</Link></li>
+                <li>
+          <Link to = '/profiles'> profiles</Link>
+          
+          
+        </li>
                 <li><Link to="/register">Register</Link></li>
                 <li><Link to="/login">Login</Link></li>
                 
