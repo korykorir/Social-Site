@@ -17,16 +17,17 @@ const Navbar = (props)=>{
           <Link to = '/profiles'> Profiles</Link>
           
         </li>
+        <li>
+        <Link to = '/posts'> Posts</Link>
+
+        </li>
 
         <li>
             <a onClick ={props.logout} href="#!">
             <i className="fas fa-sign-out-alt"></i>{' '}
             <span className="hide-sm"></span> Logout</a>
         </li>
-        <li>
-        <Link to = '/posts'> Posts</Link>
-
-        </li>
+        
         
 
     </ul>
