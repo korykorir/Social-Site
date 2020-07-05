@@ -1,0 +1,10 @@
+{
+    
+    "mongoURI":"mongodb+srv://korykorir:korykorir123@cluster0-vitvz.mongodb.net/<dbname>?retryWrites=true&w=majority",
+    "jwtsecret":"mysecrettoken",
+    "GithubClientId": "166ac66d1eeea8a90d99",
+    "clientSecret":"0915bfee2f25e15c945448d4c8d2e36621390ebd"
+}
+
+
+
