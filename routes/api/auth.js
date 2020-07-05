@@ -56,7 +56,7 @@ router.post('/login',[
 
     
 
-     const secret = config.get('jwtsecret');
+  
 
   
       jwt.sign(
