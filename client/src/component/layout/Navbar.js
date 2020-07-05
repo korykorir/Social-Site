@@ -50,7 +50,7 @@ const Navbar = (props)=>{
     return(
     <nav className="navbar bg-dark">
       <h1>
-        <Link to="/"><i className="fas fa-code"></i> DevConnector</Link>
+        <Link to="/"><i className="fas fa-code"></i> Data Driven Ag</Link>
       </h1>
     {!props.auth.loading &&(<Fragment>{props.auth.isAuthenticated ? authLinks : guestLinks}</Fragment>)}
             
