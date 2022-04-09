@@ -25,7 +25,7 @@
     "gravatar": "^1.8.0",
     "gravator": "^1.0.2",
     "jsonwebtoken": "^8.5.1",
-    "moment": "^2.27.0",
+    "moment": "^2.29.2",
     "mongoose": "^5.9.19",
     "request": "^2.88.2"
   },
